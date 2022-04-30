@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Header } from "../components/Header";
 
 const Home:NextPage = () => {
   return (
@@ -9,8 +10,8 @@ const Home:NextPage = () => {
           <meta name="description" content="Your habits" />
         </Head>
         <div className="flex flex-col h-screen">
-          <div className="bg-blue-500 h-14">
-          {/* <Header/> */}header
+          <div className="h-14">
+          <Header/>
           </div>
           <div className="bg-red-500 grow">
           {/* <MainTask/>  */} MainTask
