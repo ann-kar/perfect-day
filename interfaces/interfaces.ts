@@ -16,5 +16,5 @@ export interface ICell {
 
 export interface IMainTask {
     activeIndices: Array<number>;
-    parts: Array<ICell>;
+    cells: Array<ICell>;
   }
