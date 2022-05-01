@@ -1,46 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PieChart, Pie, ResponsiveContainer, Cell } from "recharts";
+import { IMainTask } from "../interfaces/interfaces";
 
-const data02 = {
-  activeIndices: [1, 2],
-  parts: [
-    {
-      name: "Group A",
-      value: 1,
-    },
-    {
-      name: "Group B",
-      value: 1,
-    },
-    {
-      name: "Group C",
-      value: 1,
-    },
-    {
-      name: "Group D",
-      value: 1,
-    },
-    {
-      name: "Group E",
-      value: 1,
-    },
-    {
-      name: "Group F",
-      value: 1,
-    },
-  ],
-};
 export const MainTask = () => {
-  const [activeIndices, data] = useState([1, 2]);
+  const [activeIndices, setActiveIndices] = useState([1, 2]);
+  const [cellCount, setCellCount] = useState(6);
+  const [mainTask, setMainTask] = useState<IMainTask>();
 
-  const handleClick = (e: any) => {
-    console.log(e);
-  };
+  useEffect(() => {
+    const parts = new Array(cellCount).fill(1).map((cell, i) => {
+      return { index: i, value: cell };
+    });
+    setMainTask({ activeIndices: [0], parts: parts });
+  }, [cellCount]);
+
+  const handleClick = (e: any) => {};
   return (
     <ResponsiveContainer width="100%" height="80%">
       <PieChart width={530} height={350}>
         <Pie
-          data={data02.parts}
+          data={mainTask?.parts}
           dataKey="value"
           nameKey="name"
           cx="50%"
