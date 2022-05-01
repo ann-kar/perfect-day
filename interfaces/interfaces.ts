@@ -8,3 +8,13 @@ export interface IHabit {
     priority: number;
     labels: Array<string>
 }
+
+export interface ICell {
+    index: number;
+    value: 1;
+  }
+
+export interface IMainTask {
+    activeIndices: Array<number>;
+    parts: Array<ICell>;
+  }
